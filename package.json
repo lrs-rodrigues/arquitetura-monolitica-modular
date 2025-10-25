@@ -1,0 +1,18 @@
+{
+  "name": "@bank-monorepo/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "affected:build": "nx affected --target=build",
+    "affected:deploy": "nx affected --target=deploy"
+  },
+  "devDependencies": {
+    "@jnxplus/nx-maven": "^2.1.0",
+    "@nx/workspace": "22.0.1",
+    "@prettier/plugin-xml": "^3.4.1",
+    "nx": "22.0.1",
+    "prettier": "^3.2.4",
+    "prettier-plugin-java": "2.5.0"
+  }
+}
