@@ -26,6 +26,12 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+
+      <dependency>
+          <groupId>com.github</groupId>
+          <artifactId>account</artifactId>
+          <version>${project.version}</version>
+      </dependency>
   </dependencies>
 
   <build>

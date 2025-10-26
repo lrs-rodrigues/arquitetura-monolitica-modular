@@ -24,6 +24,8 @@ dist/
 *.log
 *~
 
+**/target/
+
 # Node.js specific
 /node_modules/
 /dist/

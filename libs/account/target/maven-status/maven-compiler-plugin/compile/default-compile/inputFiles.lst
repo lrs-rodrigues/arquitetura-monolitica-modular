@@ -1,1 +1,8 @@
-/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/HelloService.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/domain/entity/Account.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/domain/entity/AccountNumber.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/domain/entity/AccountType.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/domain/repository/AccountRepository.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/infra/jpa/JpaAccountRepository.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/infra/jpa/dao/AccountDAO.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/infra/jpa/entity/AccountEntity.java
+/Users/lucasrodriguessantos/Documents/workspace/estudos/arquitetura-monolitica-modular/libs/account/src/main/java/com/github/account/infra/jpa/mapper/AccountMapper.java
