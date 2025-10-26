@@ -15,13 +15,20 @@ public interface AccountDAO extends JpaRepository<AccountEntity, Long> {
 
     @Query(
         value = """ 
-                    SELECT COUNT(*)
-                    FROM account
-                    WHERE account_agency = :agency AND account_number = :account AND account_digit = :digit
+                    SELECT EXISTS(
+                        SELECT 1
+                        FROM account
+                        WHERE account_agency = :agency AND
+                        account_number = :account AND
+                        account_digit = :digit
+                    )
                 """,
         nativeQuery = true
     )
-    boolean existsAccount(@Param("agency") String agency, @Param("account") String account, @Param("digit") Integer digit);
+    boolean existsAccount(@Param("agency") String agency,
+                          @Param("account") String account,
+                          @Param("digit") String digit
+    );
 
     @Query(
             value = """ 
@@ -31,7 +38,7 @@ public interface AccountDAO extends JpaRepository<AccountEntity, Long> {
                 """,
             nativeQuery = true
     )
-    Account findByAccountId(@Param("accountId") UUID accountId);
+    AccountEntity findByAccountId(@Param("accountId") UUID accountId);
 
     @Query(
             value = """ 
@@ -41,6 +48,6 @@ public interface AccountDAO extends JpaRepository<AccountEntity, Long> {
                 """,
             nativeQuery = true
     )
-    List<Account> findByCustomerId(@Param("customerId") UUID customerId);
+    List<AccountEntity> findByCustomerId(@Param("customerId") UUID customerId);
 
 }

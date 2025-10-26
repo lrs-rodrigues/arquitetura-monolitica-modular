@@ -21,7 +21,7 @@ public class JpaAccountRepository implements AccountRepository {
     }
 
     @Override
-    public Boolean existsAccount(String agency, String account, Integer digit) {
+    public Boolean existsAccount(String agency, String account, String digit) {
         return accountDAO.existsAccount(agency, account, digit);
     }
 
@@ -39,12 +39,14 @@ public class JpaAccountRepository implements AccountRepository {
 
     @Override
     public Account findByAccountId(UUID accountId) {
-        return accountDAO.findByAccountId(accountId);
+        var entity = accountDAO.findByAccountId(accountId);
+        return AccountMapper.toDomain(entity);
     }
 
     @Override
     public List<Account> findByCustomerId(UUID customerId) {
-        return accountDAO.findByCustomerId(customerId);
+        var entities = accountDAO.findByCustomerId(customerId);
+        return entities.stream().map(AccountMapper::toDomain).toList();
     }
 
 }

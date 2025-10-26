@@ -45,7 +45,7 @@ public class AccountEntity {
     private String accountNumber;
 
     @Column(name = "account_digit", nullable = false, length = 1)
-    private Integer accountDigit;
+    private String accountDigit;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "account_type", nullable = false, length = 20)

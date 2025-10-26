@@ -29,7 +29,7 @@ public class GeneratorAccountUseCase {
 
         String agency = getAgency(random);
         String account = getAccount(random);
-        Integer digit = calculateDigit(account);
+        String digit = calculateDigit(account);
 
         return new AccountNumber(agency, account, digit);
     }
@@ -54,7 +54,7 @@ public class GeneratorAccountUseCase {
         return account.toString();
     }
 
-    private Integer calculateDigit(String account) {
+    private String calculateDigit(String account) {
         int[] pesos = {2, 1};
         int soma = 0;
         int pesoIndex = 0;
@@ -73,7 +73,7 @@ public class GeneratorAccountUseCase {
 
         int resto = soma % 10;
 
-        return (10 - resto) % 10;
+        return String.valueOf((10 - resto) % 10);
     }
 
 }

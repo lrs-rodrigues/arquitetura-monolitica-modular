@@ -20,7 +20,7 @@ public class Account {
 
     private String agency;
     private String number;
-    private Integer digit;
+    private String digit;
     private AccountType type;
 
     private Date createdAt;
