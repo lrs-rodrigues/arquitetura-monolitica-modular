@@ -19,6 +19,7 @@
   <modules>
     <module>apps/account-service</module>
     <module>libs/account</module>
+    <module>libs/balance</module>
   </modules>
 
 </project>

@@ -39,7 +39,7 @@ CREATE INDEX idx_balance_account_id ON balance (account_id);
 CREATE TABLE balance_transaction (
     id BIGSERIAL PRIMARY KEY,
     account_id BIGINT NOT NULL REFERENCES account(id) ON DELETE CASCADE,
-    type VARCHAR(20) NOT NULL CHECK (type IN ('DEPOSIT', 'WITHDRAW', 'TRANSFER_IN', 'TRANSFER_OUT')),
+    type VARCHAR(20) NOT NULL CHECK (type IN ('DEPOSIT', 'WITHDRAW')),
     reference_id UUID, -- Ex: id da operação ou correlação
     amount NUMERIC(18,2) NOT NULL CHECK (amount > 0),
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
