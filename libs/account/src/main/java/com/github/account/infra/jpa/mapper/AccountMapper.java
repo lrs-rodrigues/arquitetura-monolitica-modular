@@ -27,6 +27,8 @@ public class AccountMapper {
     }
 
     public static Account toDomain(AccountEntity entity) {
+        if (entity == null) return null;
+
         return Account.builder()
                 .id(entity.getExternalId())
                 .customerId(entity.getCustomerId())

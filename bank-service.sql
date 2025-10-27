@@ -21,12 +21,12 @@ CREATE INDEX idx_account_external_id ON account (external_id);
 CREATE INDEX idx_account_customer_id ON account (customer_id);
 CREATE INDEX idx_account_agency ON account (account_agency, account_number, account_digit);
 
-
 -- Balance
 
 CREATE TABLE balance (
     id BIGSERIAL PRIMARY KEY,
-    account_id BIGINT NOT NULL REFERENCES account(id) ON DELETE CASCADE,
+    external_id UUID NOT NULL UNIQUE,
+    account_id UUID NOT NULL,
     amount NUMERIC(18,2) NOT NULL DEFAULT 0,
     updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
     CONSTRAINT uq_balance_account UNIQUE (account_id)
@@ -38,9 +38,9 @@ CREATE INDEX idx_balance_account_id ON balance (account_id);
 
 CREATE TABLE balance_transaction (
     id BIGSERIAL PRIMARY KEY,
-    account_id BIGINT NOT NULL REFERENCES account(id) ON DELETE CASCADE,
-    type VARCHAR(20) NOT NULL CHECK (type IN ('DEPOSIT', 'WITHDRAW')),
-    reference_id UUID, -- Ex: id da operação ou correlação
+    external_id UUID NOT NULL UNIQUE,
+    account_id UUID NOT NULL,
+    type VARCHAR(20) NOT NULL CHECK (type IN ('DEPOSIT', 'WITHDRAW', 'TRANSFER_IN', 'TRANSFER_OUT')),
     amount NUMERIC(18,2) NOT NULL CHECK (amount > 0),
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     description TEXT

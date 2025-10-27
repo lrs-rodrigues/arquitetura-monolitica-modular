@@ -32,6 +32,12 @@
           <artifactId>account</artifactId>
           <version>${project.version}</version>
       </dependency>
+
+      <dependency>
+          <groupId>com.github</groupId>
+          <artifactId>balance</artifactId>
+          <version>${project.version}</version>
+      </dependency>
   </dependencies>
 
   <build>
